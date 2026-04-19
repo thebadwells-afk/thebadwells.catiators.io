@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cat Warriors</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── TITLE SCREEN ─────────────────────────────────────────── -->
+  <div id="screen-title" class="screen active">
+    <div class="title-art">
+      <div class="moon"></div>
+      <div class="stars"></div>
+    </div>
+    <h1>Cat Warriors</h1>
+    <p class="subtitle">A life among the Clans</p>
+    <button id="btn-new-game" class="btn-primary">Begin Your Journey</button>
+  </div>
+
+  <!-- ── CHARACTER CREATION ────────────────────────────────────── -->
+  <div id="screen-create" class="screen">
+    <h2>Who Are You?</h2>
+    <div class="form-group">
+      <label for="cat-name">Kit name</label>
+      <input type="text" id="cat-name" placeholder="e.g. Fire" maxlength="12" />
+    </div>
+    <div class="form-group">
+      <label>Pelt color</label>
+      <div class="pelt-options" id="pelt-options"></div>
+    </div>
+    <div class="form-group">
+      <label>Gender</label>
+      <div class="gender-options" id="gender-options"></div>
+    </div>
+    <div class="form-group">
+      <label>Your path</label>
+      <div class="path-options" id="path-options"></div>
+    </div>
+    <div class="form-group">
+      <label>Your Clan</label>
+      <div class="clan-options" id="clan-options"></div>
+    </div>
+    <button id="btn-start" class="btn-primary" disabled>Enter the Nursery</button>
+    <div id="create-error" class="error-msg"></div>
+  </div>
+
+  <!-- ── MAIN GAME ──────────────────────────────────────────────── -->
+  <div id="screen-game" class="screen">
+
+    <!-- Header bar -->
+    <header class="game-header">
+      <div class="header-left">
+        <span id="hdr-name" class="cat-name"></span>
+        <span id="hdr-rank" class="cat-rank"></span>
+      </div>
+      <div class="header-center">
+        <span id="hdr-season" class="season-badge"></span>
+        <span id="hdr-moon" class="moon-count"></span>
+      </div>
+      <div class="header-right">
+        <span id="hdr-lives" class="lives-display hidden"></span>
+      </div>
+    </header>
+
+    <!-- Stat bars -->
+    <div class="stats-row" id="stats-row"></div>
+
+    <!-- Main content area -->
+    <div class="game-body">
+
+      <!-- Left: log / narrative -->
+      <div class="narrative-panel">
+        <div id="narrative-log"></div>
+      </div>
+
+      <!-- Right: actions + event -->
+      <div class="action-panel">
+        <div id="cat-portrait"></div>
+        <div id="relationships-panel"></div>
+        <div id="event-display" class="event-box hidden"></div>
+        <div id="action-area">
+          <h3 id="action-heading">What will you do?</h3>
+          <div id="action-buttons" class="action-grid"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Camp / relationships tab (bottom) -->
+    <div class="camp-bar">
+      <button class="tab-btn active" data-tab="actions">Camp</button>
+      <button class="tab-btn" data-tab="clan">Clan</button>
+      <button class="tab-btn" data-tab="self">Self</button>
+      <button class="tab-btn tab-end" id="btn-end-game" title="End journey &amp; return to start">↩ End</button>
+    </div>
+
+  </div>
+
+  <!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+  <script src="js/state.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
